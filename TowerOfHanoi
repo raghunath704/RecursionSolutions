@@ -1,0 +1,28 @@
+class Solution {
+  public:
+    int towerOfHanoi(int n, int from, int to, int aux) {
+        if(n==0) return 0;
+        int moves=0;
+        moves += towerOfHanoi(n-1, from, aux, to); // Move n-1 disks from 'from' to 'aux'
+        moves += 1; // Move the nth disk from 'from' to 'to'
+        moves += towerOfHanoi(n-1, aux, to, from); // Move n-1 disks from 'aux' to 'to'
+        return moves;
+        
+    }
+};
+
+
+
+//So there are 3 towers, and we have to move n disks from tower 'from' to tower 'to' using tower 'aux' as auxiliary.
+// The base case is when there are no disks to move (n == 0), in which case we return 0.
+// The recursive case involves moving n-1 disks from 'from' to 'aux', moving the nth disk from 'from' to 'to',
+// and then moving the n-1 disks from 'aux' to 'to'.
+// The total number of moves is the sum of the moves made in each step.
+// The function returns the total number of moves required to transfer all disks from 'from' to 'to'.
+// The time complexity of this solution is O(2^n), where n is the number of disks.
+// The space complexity is O(n) due to the recursive call stack.
+// The function towerOfHanoi takes four parameters:
+// n: the number of disks to move
+// from: the index of the source tower
+// to: the index of the destination tower
+// aux: the index of the auxiliary tower
