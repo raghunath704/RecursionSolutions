@@ -19,3 +19,6 @@ class Solution {
     }
 };
 
+// This question is solved using input output method, 
+// Just write the recursive tree and you can solve the question
+// also sort the output before returning it
