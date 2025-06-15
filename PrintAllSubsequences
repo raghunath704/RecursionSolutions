@@ -1,0 +1,21 @@
+class Solution {
+  private:
+    void solve(string ip,string op,int index,vector<string>&ans){
+        if(index>=ip.size()){
+            ans.push_back(op);
+            return;
+        }
+        solve(ip,op,index+1,ans);
+        solve(ip,op+ip[index],index+1,ans);
+        return;
+    }
+  public:
+    vector<string> AllPossibleStrings(string s) {
+        // Code here
+        vector<string> ans; 
+        solve(s,"",0,ans);
+        sort(ans.begin(),ans.end());
+        return ans;
+    }
+};
+
